@@ -3,6 +3,9 @@ class User {
     constructor(email, name) {
         this.email = email, // "this.email" is a properties, "email" is a params
         this.name = name // "this.name" is a properties, "name" is a params
+        // this.penambahan = function(a,b) {
+        //     return a + b
+        // }
     }
 
     login = () => {
@@ -18,8 +21,13 @@ const userOne = new User("arya@gmail.com", "Arya")
 const userTwo = new User("romi@gmail.com", "Romi")
 
 // How to use the method?
-userOne.login()
-userOne.logout()
+userOne.login().logout()
 
-userTwo.login()
-userTwo.logout()
+// userOne.login()
+// userOne.logout()
+// userOne.penambahan()
+
+// userTwo.login()
+// userTwo.logout()
+
+// console.log(userOne.penambahan(1,2))

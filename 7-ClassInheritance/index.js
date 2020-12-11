@@ -24,9 +24,9 @@ class User {
 const userOne = new User("arya@gmail.com", "Arya")
 const userTwo = new User("romi@gmail.com", "Romi")
 
-class Admin extends User{
+class Admin extends User {
     getAllUsers = () => {
-        let users = [userOne, userTwo]
+        let users = [userOne, userTwo, ceo, admin]
 
         console.log(users)
     }
@@ -34,8 +34,14 @@ class Admin extends User{
 
 const admin = new Admin("affan@gmail.com", "Affan");
 
-// Invoke an objects with getAllusers() method
-userOne.getAllUsers() // error
-userTwo.getAllUsers() // error
+class CEO extends Admin {
 
-// admin.login().logout().getAllUsers() // pass
+}
+
+const ceo = new CEO("zaki@gmail.com", "Zaki")
+
+// Invoke an objects with getAllusers() method
+// userOne.getAllUsers() // error
+// userTwo.getAllUsers() // error
+
+admin.login().logout().getAllUsers() // pass

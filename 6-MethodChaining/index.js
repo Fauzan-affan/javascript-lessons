@@ -8,10 +8,19 @@ class User {
 
     login = () => {
         console.log(this.email, "just logged in")
+
+        return this
     }
 
     logout = () => {
         console.log(this.email, "just logged out")
+
+        return this
+    }
+
+    signUp = (email, name) => {
+        this.email = email,
+        this.name = name
     }
 }
 
@@ -43,4 +52,7 @@ const userTwo = new User("romi@gmail.com", "Romi")
 // userTwo.logout()
 
 // How to invoke methode chaining?
-userOne.login().logout() // error and just invoke login()
+// userOne.signUp("dono@gmail.com", "Dono")
+userOne.login().logout().signUp("dono@gmail.com", "Dono") // error and just invoke login()
+// userOne.signUp("dono@gmail.com", "Dono")
+console.log(userOne)

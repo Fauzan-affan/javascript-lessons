@@ -1,4 +1,4 @@
-let userOne = {
+const userOne = {
     email: 'fauzan@gmail.com',
     name: 'Fauzan',
     login(){

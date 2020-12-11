@@ -24,10 +24,27 @@ const logFriends = (friends) => {
     });
 }
 
-login(userOneEmail)
+// login(userOneEmail)
 
 // OOP - Encapsulation
-
 let userOne = {
-    
+    email: "fauzan@gmail.com",
+    name: "Fauzan",
+    friends: ['Romi','Fauzan','Arya'],
+    login() {
+        console.log(this.email, "is now online")
+    },
+    logFriends() {
+        this.friends.forEach((friend) => {
+            console.log(friend)
+        })
+    }
 }
+
+// Cara 1
+// userOne.login()
+// console.log(userOne.name)
+// userOne.logFriends()
+
+// Cara 2
+console.log(userOne['email'])
