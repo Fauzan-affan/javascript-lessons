@@ -1,20 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>1 Object Composition Javascript</title>
 
-    <link rel="stylesheet" href="styles.module.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.module.css" />
+  </head>
+  <body>
     <h1>1 Object Composition Javascript</h1>
 
     <h4>What we gonna do:</h4>
     <ul>
-        <li>Object composition vs inheritance</li>
-        <li>Function composition</li>
+      <li>Composition vs Aggregation</li>
+      <li>Composition vs Inheritance</li>
+      <li>Function Composition</li>
     </ul>
+
+    <div>
+      <h4>Composition vs Aggregation</h4>
+      <ul class="compsition-vs-aggregator">
+        <li>
+          <b>Dependency:</b> <br> Aggregation implies a relationship where the child
+          <b>can exist independently</b> of the parent. <br />
+          For example, Bank and Employee, delete the Bank and the Employee still
+          exist. <br /><br />
+          Composition implies a relationship where the child
+          <b>cannot exist independent</b> of the parent. Example: Human and
+          heart, heart don’t exist separate to a Human
+        </li>
+        <li>
+          <b>Type of Relationship:</b> <br> Aggregation relation is <b>“has-a” / "uses-a"</b> and
+          composition is <b>“part-of”</b> relation.
+        </li>
+        <li>
+          <b>Type of association:</b> <br> 
+          Aggregation is a <b>weak</b> Association. Whereas Composition is a <b>strong</b> Association.
+        </li>
+      </ul>
+    </div>
+
     <script src="index.js"></script>
-</body>
+    <script src="composition.js"></script>
+  </body>
 </html>

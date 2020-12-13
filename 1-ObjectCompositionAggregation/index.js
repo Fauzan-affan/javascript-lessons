@@ -1,134 +1,44 @@
-// Object composition vs inheritance
-// class User {
-//     constructor(email, name) {
-//         this.email = email,
-//         this.name = name
-//     }
+// Aggregation
 
-//     login = () => {
-//         console.log(this.email, "just logged in")
-//         return this
-//     }
+class Bank {
+    constructor() {
+        this.nib = 10
+    }
+    getEmployee = () => ['Employee 1', 'Employee 2', 'Employee 3']
+}
 
-//     logout = () => {
-//         console.log(this.email, "just logged out")
-//         return this
-//     }
-// }
+// -----------------
 
-// class Admin extends User {
-//     getAllUsers = () => {
-//         let users = [userOne, userTwo]
+class Employee {
+    constructor() {
+        this.nik = 1010
+    }
+    getCustomer = () => ['Customre 1', 'Customre 2', 'Customre 3']
+}
 
-//         console.log(users)
-//     }
-// }
+// -----------------
 
-// class Sales extends User {
-//     getDataSales = () => {
-//         let salesPerformance = '88%'
-        
-//         console.log("Sales Performance:", salesPerformance)
-//     }
-// }
+class Customer {
+    constructor() {
+        this.nip = 101010
+    }
+    createRekening = () => "Rekening Employee"
+}
 
-// const userOne = new User("arya@gmail.com", "Arya")
-// const userTwo = new User("romi@gmail.com", "Romi")
+// Assosiation
 
-// const admin = new Admin("affan@gmail.com", "Affan");
+class Heart {
+    constructor() {
+        this.heartRatio = '99%'
+    }
 
-// const sales = new Sales("zaki@gmail.com", "Zaki")
+    breathe = () => this.heartRatio
+}
 
-// admin.login().logout().getAllUsers()
-// sales.getDataSales()
+class Human extends Heart {
+    // some property ...
+}
 
-// How to create class CEO extends Admin and Sales?
+const objHuman = new Human()
 
-// Class
-// const User = (useremail, username) => {
-//     return {
-//         ...signUpFunction(useremail,username),
-//         ...loginFunction(useremail),
-//         ...logoutFunction(useremail)
-//     }
-// }
-
-// const Admin = (useremail, username) => {
-//     return {
-//         ...signUpFunction(useremail, username),
-//         ...loginFunction(useremail),
-//         ...logoutFunction(useremail),
-//         ...getAllUserFunction()
-//     }
-// }
-
-// const Sales = (useremail, username) => {
-//     return {
-//         ...signUpFunction(useremail,username),
-//         ...loginFunction(useremail),
-//         ...logoutFunction(useremail),
-//         ...getDataSalesFunction()
-//     }
-// }
-
-// const CEO = (useremail, username) => {
-//     return {
-//         ...signUpFunction(useremail,username),
-//         ...loginFunction(useremail),
-//         ...logoutFunction(useremail),
-//         ...getAllUserFunction(),
-//         ...getDataSalesFunction()
-//     }
-// }
-
-// Function
-// const signUpFunction = (useremail, username) => {
-//     const user = {email: useremail, name: username}
-    
-//     return {
-//         ...user
-//     }
-// }
-
-// const loginFunction = (email) => {
-//     return {
-//         login: () => console.log(email, "just logged in"),
-//         this: this
-//     }
-// }
-
-// const logoutFunction = (email) => {
-//     return {
-//         logout: () => console.log(email, "just logged out")
-//     }
-// }
-
-// const getAllUserFunction = () => {
-    
-//     return {
-//         allUsers: (...users) => console.log(users)
-//     }
-// }
-
-// const getDataSalesFunction = () => {
-//     let salesPerformance = '88%'
-    
-//     return {
-//         dataSales: () => console.log("Sales Performance:", salesPerformance)
-//     }
-// }
-
-// Instance
-// const userOne = User("arya@gmail.com", "Arya")
-// const userTwo = User("romi@gmail.com", "Romi")
-// const admin = Admin("fauzan@gmail.com", "Fauzan")
-// const sales = Sales("zaki@gmail.com", "Zaki")
-// const ceo = CEO("affan@gmail.com", "Affan")
-
-// console.log(userOne.login())
-// console.log(userOne.logout())
-// console.log(admin)
-// console.log(admin.allUsers(userOne, userTwo))
-// console.log(sales.dataSales())
-// console.log(ceo.allUsers(userOne, userTwo, admin, sales, ceo))
-// console.log(ceo.dataSales())
+console.log(objHuman.breathe())
