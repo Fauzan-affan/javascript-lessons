@@ -1,15 +1,15 @@
 // Callback Concept
 
-const main = (param1, param2, callBack) => {
-  console.log(param1, param2);
-  callBack();
-}
+// const main = (param1, param2, callBack) => {
+//   console.log(param1, param2);
+//   callBack();
+// }
 
-const myCallback = () => {
-  console.log("Hello Callback");
-}
+// const test = () => {
+//   console.log("Hello Callback");
+// }
 
-main(1, 2, myCallback);
+// main(1, 2, test);
 
 /*
 Output :
@@ -20,12 +20,20 @@ Output :
 // Synchronous Callback
 // 1 - Callback as injection of a function
 
-// const calculator = (a,b) => {
-//     let result = a + b
-//     return result
+// const calculator = (a,b,operator) => {
+//   let result
+
+//   if (operator === "additional") {
+//     result = a + b
+//   } else if (operator === "minus") {
+//     result = a - b
+//   }
+
+//   return result
 // }
 
-// console.log(calculator(5,5)) // 10
+// console.log(calculator(5,5,"additional")) // 10
+// console.log(calculator(5,5,"minus")) // 0
 
 /*
 Make the function above so that you can perform 
@@ -33,11 +41,12 @@ other mathematical operations such as minus, divide, multiply and so on.
 */
 
 // const calculator = (a,b,callback) => {
-//     let result = 0
+//   let result = 0
 
-//     typeof callback === "function" ? result = callback(a,b) : result
+//   // Ternary operator. condition ? true : condition ? true : false
+//   typeof callback === "function" ? result = callback(a,b) : result
 
-//     return result
+//   return result
 // }
 
 // let addition = calculator(5,5, (x,y) => x+y)
@@ -52,7 +61,8 @@ other mathematical operations such as minus, divide, multiply and so on.
 
 // 2 - Callback as event listener
 
-// document.querySelector("#buttonAlert").addEventListener("click", () => alert("Ouch i am clicked!"))
+// document.querySelector("#buttonAlert")
+// .addEventListener("click", () => alert("Ouch i am clicked!"))
 
 // Asynchronous Callback
 /* 
@@ -92,11 +102,11 @@ yang lebih dulu selesai. Perhatikan contoh berikut:
 //   console.log('p1 done')
 // }
 // function p2() {
-//   //setTimeout or delay for asynchronous simulation 
+//   //setTimeout or delay for asynchronous simulation
 //   setTimeout(
 //     function() {
 //       console.log('p2 done')
-//     },100
+//     }, 100
 //   )
 // }
 // function p3() {
@@ -115,64 +125,64 @@ p2 done
 // Solusinya adalah dengan membuat p3 menjadi callback bagi p2.
 
 // function p1() {
-//   console.log('p1 done')
-//  }
- 
-//  function p2(callback) {
-//   setTimeout(
-//    function() {
-//     console.log('p2 done')
-//      callback()
-//    },100
-//    )
-//  }
- 
-//  function p3() {
-//    console.log('p3 done')
-//  }
+//   console.log("p1 done");
+// }
 
-//  p1()
-//  p2(p3)
+// function p2(callback) {
+//   setTimeout(function () {
+//     console.log("p2 done");
+//     callback();
+//   }, 100);
+// }
+
+// function p3() {
+//   console.log("p3 done");
+// }
+
+// p1();
+// p2(p3);
 
 // - Callback in ajax request
 
 // Problem
 
 // data=requestAjax() // asynchronous process
-// showResult(data) //undefined
+// showResult(data) // undefined
 
 // Solution
 
-// function requestAjax(callback){
+function requestAjax(callback){
 
-//   // inisialisasi library XML Http Request
-//   var xhr = new XMLHttpRequest();
+  // inisialisasi library XML Http Request
+  var xhr = new XMLHttpRequest();
 
-//   // set target request
-//   xhr.open('GET','https://jsonplaceholder.typicode.com/users/1')
+  console.log(xhr)
 
-//   // terapkan callback
-//   xhr.onload = () => {
-//     if(xhr.status === 200){
-//       callback(xhr.response)
-//     }else{
-//       callback('Failed')
-//     }
-//   }
+  // set target request
+  xhr.open('GET','https://jsonplaceholder.typicode.com/users/1')
 
-//   // mulai request
-//   xhr.send()
-  
-// }
+  // terapkan callback
+  xhr.onload = () => {
+    if(xhr.status === 200){
+      callback(xhr.response)
+    }else{
+      callback('Failed')
+    }
+  }
 
-// function showResult(data){
-//   if (data != 'Failed'){
-//     //tampilkan Data
-//     data=JSON.parse(data)
-//     console.log(data)
-//   } else {
-//     console.log('Error bosQ')
-//   }
-// }
+  // mulai request
+  xhr.send()
 
-// requestAjax(showResult)
+}
+
+function showResult(data){
+  if (data != 'Failed'){
+    //tampilkan Data
+    data=JSON.parse(data)
+    console.log(data)
+  } else {
+    console.log('Error bosQ')
+  }
+}
+
+requestAjax(showResult)

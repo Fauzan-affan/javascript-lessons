@@ -25,7 +25,7 @@ class Customer {
     createRekening = () => "Rekening Employee"
 }
 
-// Assosiation
+// Composition
 
 class Heart {
     constructor() {
@@ -41,4 +41,4 @@ class Human extends Heart {
 
 const objHuman = new Human()
 
-console.log(objHuman.breathe())
+// console.log(objHuman.breathe())
