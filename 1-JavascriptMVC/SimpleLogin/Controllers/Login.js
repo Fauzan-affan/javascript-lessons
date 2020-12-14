@@ -1,15 +1,16 @@
 // Model
-import {users} from "../Model/Login.js"
+import {users} from "../Model/Users.js"
 
 // View
 import Login from "../Views/Login/Login.js"
 import Dashboard from "../Views/Dashboard/Dashboard.js"
 
 export const handleView = (status) => {
-    if (status === "yes") {
-        return Dashboard
-    } else {
-        return Login
+    switch (status) {
+        case "dashboard":
+            return Dashboard
+        default:
+            return Login
     }
 }
 
@@ -23,9 +24,9 @@ export const handleForm = (username, password) => {
         console.log(authUsername, authPassword)
 
         if (authPassword) {
-            return "yes"
+            return "dashboard"
         } else {
-            return "no"
+            return "login"
         }
     }
 }

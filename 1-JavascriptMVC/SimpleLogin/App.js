@@ -4,7 +4,7 @@ import {handleView, handleForm} from "./Controllers/Login.js"
 var inputUsername, inputPassword
 
 const App = document.querySelector("#App");
-App.innerHTML = handleView();
+App.innerHTML = handleView("login");
 
 const handleUsername = (e) => {inputUsername = e.target.value}
 const handlePassword = (e) => {inputPassword = e.target.value}
