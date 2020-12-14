@@ -17,11 +17,11 @@ export const handleView = (status) => {
 export const handleForm = (username, password) => {
     let authUsername, authPassword
     
-    if (username && password) {
+    if (username && password) { // username && pass not empty
         authUsername = users.filter(user => user.username === username)
         authPassword = JSON.stringify(...authUsername.map(user => user.password)) === password
-        
-        console.log(authUsername, authPassword)
+
+        console.log(authPassword)
 
         if (authPassword) {
             return "dashboard"
